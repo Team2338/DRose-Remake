@@ -21,7 +21,6 @@ public class drivetrain implements Subsystem {
     }
 
     public void setspeed(double leftspeed, double rightspeed){
-
             //run by percent default always for PWM
             //limits set by library
             leftbackneo.set(leftspeed);
