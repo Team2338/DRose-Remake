@@ -3,6 +3,8 @@ package team.gif.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import team.gif.robot.subsystems.*;
+import team.gif.robot.commands.*;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -17,6 +19,9 @@ public class Robot extends TimedRobot {
   private String m_autoSelected;
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
 
+  public drivetrain drivetrain;
+
+
   /**
    * This function is run when the robot is first started up and should be
    * used for any initialization code.
@@ -26,6 +31,8 @@ public class Robot extends TimedRobot {
     m_chooser.setDefaultOption("Default Auto", kDefaultAuto);
     m_chooser.addOption("My Auto", kCustomAuto);
     SmartDashboard.putData("Auto choices", m_chooser);
+
+    drivetrain = new drivetrain();
   }
 
   /**
@@ -86,5 +93,11 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void testPeriodic() {
+  }
+
+  @Override
+  public void teleopInit() {
+    System.out.println("teleop init");
+    drive drive = new drive(drivetrain);
   }
 }
