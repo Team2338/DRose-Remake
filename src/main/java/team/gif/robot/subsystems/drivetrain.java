@@ -9,9 +9,9 @@ public class drivetrain implements Subsystem {
 
     // PWM pulse width modulator
     PWMSparkMax rightfrontneo = new PWMSparkMax(RobotMap.rightfrontneo);
-    PWMSparkMax rightbackneo = new PWMSparkMax(RobotMap.rightfrontneo);
-    PWMSparkMax leftfrontneo = new PWMSparkMax(RobotMap.rightfrontneo);
-    PWMSparkMax leftbackneo = new PWMSparkMax(RobotMap.rightfrontneo);
+    PWMSparkMax rightbackneo = new PWMSparkMax(RobotMap.rightbackneo);
+    PWMSparkMax leftfrontneo = new PWMSparkMax(RobotMap.leftfrontneo);
+    PWMSparkMax leftbackneo = new PWMSparkMax(RobotMap.leftbackneo);
 
     public drivetrain(){
 
