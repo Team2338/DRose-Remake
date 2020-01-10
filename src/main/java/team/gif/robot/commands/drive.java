@@ -9,14 +9,15 @@ import team.gif.robot.subsystems.drivetrain;
 import java.lang.module.ModuleDescriptor;
 
 public class drive extends CommandBase {
+
     drivetrain drivetrain;
+
     public drive(drivetrain s){
         drivetrain = s;
         addRequirements(drivetrain);
 
 
     }
-
 
     @Override
     public void initialize() {
