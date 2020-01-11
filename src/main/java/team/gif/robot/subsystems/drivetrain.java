@@ -5,8 +5,6 @@ import edu.wpi.first.wpilibj2.command.Subsystem;
 import team.gif.robot.RobotMap;
 
 public class drivetrain implements Subsystem {
-
-
     // PWM pulse width modulator
     PWMSparkMax rightfrontneo = new PWMSparkMax(RobotMap.rightfrontneo);
     PWMSparkMax rightbackneo = new PWMSparkMax(RobotMap.rightbackneo);
