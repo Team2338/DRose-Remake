@@ -1,23 +1,25 @@
 package team.gif.robot.commands;
+
 import edu.wpi.first.wpilibj.GenericHID;
-import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.Subsystem;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import team.gif.robot.OI;
-import team.gif.robot.subsystems.drivetrain;
+import team.gif.robot.subsystems.subsystemtemplate;
 
-import java.lang.module.ModuleDescriptor;
+public class commandtemplate extends CommandBase {
 
-public class drive extends CommandBase {
+    public commandtemplate(subsystemtemplate[] s) {
 
-    drivetrain drivetrain;
 
-    public drive(drivetrain s){
-        drivetrain = s;
-        addRequirements(drivetrain);
+        for(int c = 0;s.length<c;c++){
+            addRequirements(s[c]);
+        }
 
 
     }
+
+
 
     @Override
     public void initialize() {
@@ -26,7 +28,6 @@ public class drive extends CommandBase {
 
     @Override
     public void execute() {
-        drivetrain.setspeed(OI.controller.getY(GenericHID.Hand.kLeft), OI.controller.getY(GenericHID.Hand.kRight));
     }
 
     @Override

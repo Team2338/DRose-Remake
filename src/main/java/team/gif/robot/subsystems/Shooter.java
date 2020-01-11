@@ -18,6 +18,7 @@ public class Shooter extends SubsystemBase {
         return instance;
     }
 
+
     //Victor flywheelMotor = new Victor(RobotMap.flywheelMotor);
     PWMSparkMax flywheelMotor = new PWMSparkMax(RobotMap.flywheelMotor);
 
