@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import team.gif.robot.commands.*;
 import team.gif.robot.commands.collector.IntakeGroup;
+import team.gif.robot.commands.shooter.ShooterGroup;
 
 
 public class OI {
@@ -17,10 +18,12 @@ public class OI {
     public OI(){
 
         //a.whileHeld(new CollectorBottom());
-        a.whenPressed(new IntakeGroup());
         //b.whileHeld(new CollectorMiddle());
-        x.whileHeld(new CollectorTop());
+        //x.whileHeld(new CollectorTop());
         y.whenPressed(new Stop());
         RB.whileHeld(new Flywheel());
+
+        a.whenPressed(new IntakeGroup());
+        x.whenPressed(new ShooterGroup());
     }
 }

@@ -19,7 +19,7 @@ public class Robot extends TimedRobot {
 //  private String m_autoSelected;
 //  private final SendableChooser<String> m_chooser = new SendableChooser<>();
 //
-  public drivetrain drive;
+  //public drivetrain drive;
 
   private OI oi;
 
@@ -36,6 +36,8 @@ public class Robot extends TimedRobot {
 //    drivetrain = new drivetrain();
 
     oi = new OI();
+
+    SmartDashboard.putNumber("Shooter Speed", Globals.shooterSpeed);
   }
 
   /**
@@ -103,8 +105,9 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopInit() {
 
-    System.out.println("teleop init");
-    drive = new drivetrain();
+    //System.out.println("teleop init");
+    //drive = new drivetrain();
 
+    Globals.shooterSpeed = SmartDashboard.getNumber("Shooter Speed", Globals.shooterSpeed);
   }
 }
