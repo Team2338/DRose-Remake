@@ -1,11 +1,10 @@
-package team.gif.robot.commands;
+package team.gif.robot.commands.collector;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import team.gif.robot.subsystems.Collector;
 
-public class CollectorBottom extends CommandBase {
-
-    public CollectorBottom() {
+public class CollectorStageTwo extends CommandBase {
+    public CollectorStageTwo() {
         addRequirements(Collector.getInstance());
     }
 
@@ -16,16 +15,17 @@ public class CollectorBottom extends CommandBase {
     @Override
     public void execute() {
         Collector.getInstance().setSpeedBot(0.5);
-        //System.out.println("yeet")
+        Collector.getInstance().setSpeedMid(0.5);
     }
 
     @Override
     public void end(boolean interrupted) {
-
+        Collector.getInstance().setSpeedBot(0);
+        Collector.getInstance().setSpeedMid(0);
     }
 
     @Override
     public boolean isFinished() {
-        return false;
+        return Collector.getInstance().getMidSensor();
     }
 }

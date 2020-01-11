@@ -15,4 +15,9 @@ public class RobotMap {
 
     // Shooter Victor
     public static int flywheelMotor = 2;
+
+    // Light Sensors
+    public static int lightOne = 0;
+    public static int lightTwo = 2;
+    public static int lightThree = 1;
 }
