@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import team.gif.robot.commands.*;
 
 public class OI {
-    public static XboxController controller = new XboxController(8);
+    public static XboxController controller = new XboxController(0);
     JoystickButton leftjoystick; //TODO Zane a joystick isn't a button!
     JoystickButton a = new JoystickButton(controller, 1);
     JoystickButton b = new JoystickButton(controller, 2);

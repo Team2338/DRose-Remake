@@ -15,7 +15,7 @@ public class CollectorTop extends CommandBase {
 
     @Override
     public void execute() {
-        Collector.getInstance().setSpeedTop(0.2);
+        Collector.getInstance().setSpeedTop(0.5);
     }
 
     @Override

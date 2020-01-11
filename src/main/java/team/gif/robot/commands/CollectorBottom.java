@@ -15,7 +15,8 @@ public class CollectorBottom extends CommandBase {
 
     @Override
     public void execute() {
-        Collector.getInstance().setSpeedBot(0.2);
+        Collector.getInstance().setSpeedBot(0.5);
+        //System.out.println("yeet");
     }
 
     @Override

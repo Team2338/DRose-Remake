@@ -19,6 +19,10 @@ public class Collector extends SubsystemBase {
     Victor collectMotorMid = new Victor(RobotMap.collectorMotorMid);
     Victor collectMotorTop = new Victor(RobotMap.collectorMotorTop);
 
+    private Collector() {
+        collectMotorTop.setInverted(true);
+    }
+
     public void setSpeedBot(double speedBot) {
         collectMotorBot.set(speedBot);
     }
