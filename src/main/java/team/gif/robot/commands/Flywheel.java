@@ -1,12 +1,12 @@
 package team.gif.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import team.gif.robot.subsystems.Collector;
+import team.gif.robot.subsystems.Shooter;
 
-public class CollectorTop extends CommandBase {
+public class Flywheel extends CommandBase {
 
-    public CollectorTop() {
-        addRequirements(Collector.getInstance());
+    public Flywheel() {
+        addRequirements(Shooter.getInstance());
     }
 
     @Override
@@ -15,7 +15,7 @@ public class CollectorTop extends CommandBase {
 
     @Override
     public void execute() {
-        Collector.getInstance().setSpeedTop(0.5);
+        Shooter.getInstance().setSpeedFlywheel(0.5);
     }
 
     @Override

@@ -15,7 +15,7 @@ public class CollectorMiddle extends CommandBase {
 
     @Override
     public void execute() {
-        Collector.getInstance().setSpeedMid(0.2);
+        Collector.getInstance().setSpeedMid(0.5);
     }
 
     @Override

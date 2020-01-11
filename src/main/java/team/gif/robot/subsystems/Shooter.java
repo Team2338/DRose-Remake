@@ -1,6 +1,11 @@
 package team.gif.robot.subsystems;
 
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel;
+import edu.wpi.first.wpilibj.PWMSparkMax;
+import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import team.gif.robot.RobotMap;
 
 public class Shooter extends SubsystemBase {
 
@@ -11,5 +16,13 @@ public class Shooter extends SubsystemBase {
             instance = new Shooter();
         }
         return instance;
+    }
+
+
+    //Victor flywheelMotor = new Victor(RobotMap.flywheelMotor);
+    PWMSparkMax flywheelMotor = new PWMSparkMax(RobotMap.flywheelMotor);
+
+    public void setSpeedFlywheel(double speedFlywheel) {
+        flywheelMotor.set(speedFlywheel);
     }
 }

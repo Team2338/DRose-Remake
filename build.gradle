@@ -3,7 +3,7 @@ plugins {
     id "edu.wpi.first.GradleRIO" version "2020.1.2"
 }
 
-def ROBOT_MAIN_CLASS = "frc.team.gif.robot.Main"
+def ROBOT_MAIN_CLASS = "team.gif.robot.Main"
 def TEAM_NUMBER = 2338
 
 // Define my targets (RoboRIO) and artifacts (deployable files)
