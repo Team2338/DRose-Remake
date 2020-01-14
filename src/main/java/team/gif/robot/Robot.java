@@ -36,6 +36,7 @@ public class Robot extends TimedRobot {
 //    drivetrain = new drivetrain();
 
     oi = new OI();
+    drive = new drivetrain();
   }
 
   /**
@@ -104,7 +105,9 @@ public class Robot extends TimedRobot {
   public void teleopInit() {
 
     System.out.println("teleop init");
-    drive = new drivetrain();
+
+    drive d = new drive(drive);
+    CommandScheduler.getInstance().schedule(d);
 
   }
 }
