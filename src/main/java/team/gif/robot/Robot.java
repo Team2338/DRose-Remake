@@ -1,10 +1,9 @@
 package team.gif.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
-import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import team.gif.robot.commands.DriveTrain.drive;
 import team.gif.robot.subsystems.*;
-import team.gif.robot.commands.*;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -19,7 +18,11 @@ public class Robot extends TimedRobot {
 //  private String m_autoSelected;
 //  private final SendableChooser<String> m_chooser = new SendableChooser<>();
 //
+<<<<<<< HEAD
+  //:public drivetrain drive;
+=======
   public drivetrain driver;
+>>>>>>> fbaeb2083b12799ee8f7601ef76dc8ff715da0e3
 
   private OI oi;
 
