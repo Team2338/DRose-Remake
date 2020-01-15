@@ -15,7 +15,7 @@ public class Flywheel extends CommandBase {
 
     @Override
     public void execute() {
-        Shooter.getInstance().setSpeedFlywheel(0.5);
+        Shooter.getInstance().setSpeedFlywheel(0.4);
     }
 
     @Override

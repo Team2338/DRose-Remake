@@ -15,15 +15,18 @@ public class OI {
     JoystickButton x = new JoystickButton(controller, 3);
     JoystickButton y = new JoystickButton(controller, 4);
     JoystickButton RB = new JoystickButton(controller, 5);
+    JoystickButton LB = new JoystickButton(controller, 6);
+    JoystickButton LT = new JoystickButton(controller, 7);
     public OI(){
 
-        //a.whileHeld(new CollectorBottom());
-        //b.whileHeld(new CollectorMiddle());
-        //x.whileHeld(new CollectorTop());
+        // a.whileHeld(new CollectorBottom());
+        // b.whileHeld(new CollectorMiddle());
+        // x.whileHeld(new CollectorTop());
         y.whenPressed(new Stop());
-        RB.whileHeld(new Flywheel());
+        LB.whileHeld(new Flywheel());
 
-        a.whenPressed(new IntakeGroup());
-        x.whenPressed(new ShooterGroup());
+        x.whenPressed(new IntakeGroup());
+        a.whileHeld(new ShooterGroup());
+
     }
 }
