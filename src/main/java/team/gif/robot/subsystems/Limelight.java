@@ -14,11 +14,4 @@ public class Limelight extends SubsystemBase {
         }
         return instance;
     }
-
-    PWMSparkMax rightfrontneo = new PWMSparkMax(RobotMap.rightfrontneo);
-    PWMSparkMax rightbackneo = new PWMSparkMax(RobotMap.rightbackneo);
-    PWMSparkMax leftfrontneo = new PWMSparkMax(RobotMap.leftfrontneo);
-    PWMSparkMax leftbackneo = new PWMSparkMax(RobotMap.leftbackneo);
-
-    right
 }
