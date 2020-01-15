@@ -1,15 +1,16 @@
-package team.gif.robot.commands.DriveTrain;
+package team.gif.robot.commands.drivetrain;
 
-import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import team.gif.robot.OI;
+import team.gif.robot.Robot;
 import team.gif.robot.subsystems.drivetrain;
 
 public class Pivot extends CommandBase {
-    public Pivot() {
+    public Pivot(double margin) {
         addRequirements(drivetrain.getInstance());
     }
 
+    public static double margin;
+    public static double speedconst;
     @Override
     public void initialize() {
 
@@ -17,7 +18,11 @@ public class Pivot extends CommandBase {
 
     @Override
     public void execute() {
-        drivetrain.getInstance().setspeed(0, 0);
+
+        while(Robot.limelight.getXOffset()>margin ||Robot.limelight.getXOffset()<margin) {
+            drivetrain.getInstance().setspeed(speedconst*Robot.limelight.getXOffset(),-1*speedconst*Robot.limelight.getXOffset());
+        }
+
     }
 
     @Override

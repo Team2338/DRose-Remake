@@ -1,12 +1,8 @@
-package team.gif.robot.commands.DriveTrain;
+package team.gif.robot.commands.drivetrain;
 import edu.wpi.first.wpilibj.GenericHID;
-import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import edu.wpi.first.wpilibj2.command.Subsystem;
 import team.gif.robot.OI;
 import team.gif.robot.subsystems.drivetrain;
-
-import java.lang.module.ModuleDescriptor;
 
 public class drive extends CommandBase {
 

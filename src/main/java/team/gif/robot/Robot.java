@@ -2,7 +2,7 @@ package team.gif.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import team.gif.robot.commands.DriveTrain.drive;
+import team.gif.robot.commands.drivetrain.drive;
 import team.gif.robot.subsystems.*;
 
 /**
@@ -18,12 +18,12 @@ public class Robot extends TimedRobot {
 //  private String m_autoSelected;
 //  private final SendableChooser<String> m_chooser = new SendableChooser<>();
 //
-<<<<<<< HEAD
-  //:public drivetrain drive;
-=======
-  public drivetrain driver;
->>>>>>> fbaeb2083b12799ee8f7601ef76dc8ff715da0e3
 
+  //:public drivetrain drive;
+
+  public drivetrain driver;
+
+  public static Limelight limelight;
   private OI oi;
 
   /**
@@ -42,6 +42,7 @@ public class Robot extends TimedRobot {
     driver = new drivetrain();
 
     SmartDashboard.putNumber("Shooter Speed", Globals.shooterSpeed);
+    limelight = new Limelight();
   }
 
   /**
