@@ -18,8 +18,8 @@ public class ShootTrigger extends CommandBase {
     @Override
     public void execute() {
         Shooter.getInstance().setSpeedFlywheel(Globals.shooterSpeed);
-        Collector.getInstance().setSpeedBot(0.5);
-        Collector.getInstance().setSpeedMid(0.5);
+        //Collector.getInstance().setSpeedBot(0.5);
+        //Collector.getInstance().setSpeedMid(0.5);
         Collector.getInstance().setSpeedTop(0.5);
     }
 
