@@ -9,7 +9,6 @@ public class RobotMap {
     public static int leftfrontneo = 0;
     public static int leftbackneo = 10;
 
-
     // Collector Victors
     public static int collectorMotorBot = 4; //TODO find motor port #s
     public static int collectorMotorMid = 5;
