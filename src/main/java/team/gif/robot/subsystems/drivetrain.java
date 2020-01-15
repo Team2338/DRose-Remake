@@ -19,7 +19,7 @@ public class drivetrain implements Subsystem {
     PWMSparkMax rightfrontneo = new PWMSparkMax(RobotMap.rightfrontneo);
     PWMSparkMax leftfrontneo = new PWMSparkMax(RobotMap.leftfrontneo);
 
-    public drivetrain(){
+    private drivetrain(){
         leftfrontneo.setInverted(true);
 
 

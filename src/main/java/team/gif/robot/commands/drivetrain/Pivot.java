@@ -1,5 +1,6 @@
 package team.gif.robot.commands.drivetrain;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import team.gif.robot.Robot;
 import team.gif.robot.subsystems.drivetrain;
@@ -11,8 +12,8 @@ public class Pivot extends CommandBase {
         this.margin = margin;
     }
 
-    public static double margin;
-    public static double kP;
+    public static double margin = 5;
+    public static double kP = .25;
 
     @Override
     public void initialize() {
@@ -21,13 +22,17 @@ public class Pivot extends CommandBase {
 
     @Override
     public void execute() {
-
-        if(Robot.limelight.getXOffset()>margin ||Robot.limelight.getXOffset()<margin) {
-            drivetrain.getInstance().setspeed(kP*Robot.limelight.getXOffset(),-1*kP*Robot.limelight.getXOffset());
+        double xoffset = Robot.limelight.getXOffset();
+        if(xoffset>-margin ||xoffset<margin) {
+            drivetrain.getInstance().setspeed(kP*xoffset,-1*kP*xoffset);
+            SmartDashboard.putBoolean("Bridge Limit", false);
         }else{
             end(true);
-
+            SmartDashboard.putBoolean("Bridge Limit", true);
         }
+        SmartDashboard.putNumber("robot x offset Angle", xoffset);
+        SmartDashboard.putNumber("margin", margin);
+        SmartDashboard.putNumber("kP", kP);
 
     }
 

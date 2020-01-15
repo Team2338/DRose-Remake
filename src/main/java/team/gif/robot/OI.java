@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import team.gif.robot.commands.*;
 import team.gif.robot.commands.collector.IntakeGroup;
+import team.gif.robot.commands.shooter.LimelightShooterGroup;
 import team.gif.robot.commands.shooter.ShooterGroup;
 
 
@@ -27,6 +28,8 @@ public class OI {
 
         x.whenPressed(new IntakeGroup());
         a.whileHeld(new ShooterGroup());
+
+        b.whenPressed(new LimelightShooterGroup());
 
     }
 }

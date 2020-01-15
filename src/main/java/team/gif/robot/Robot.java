@@ -39,7 +39,7 @@ public class Robot extends TimedRobot {
 //    drivetrain = new drivetrain();
 
     oi = new OI();
-    driver = new drivetrain();
+    driver = drivetrain.getInstance();
 
     SmartDashboard.putNumber("Shooter Speed", Globals.shooterSpeed);
     limelight = new Limelight();
