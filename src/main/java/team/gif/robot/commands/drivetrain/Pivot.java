@@ -5,12 +5,15 @@ import team.gif.robot.Robot;
 import team.gif.robot.subsystems.drivetrain;
 
 public class Pivot extends CommandBase {
-    public Pivot(double margin) {
+    public Pivot(double margin, double kP) {
         addRequirements(drivetrain.getInstance());
+        this.kP = kP;
+        this.margin = margin;
     }
 
     public static double margin;
-    public static double speedconst;
+    public static double kP;
+
     @Override
     public void initialize() {
 
@@ -19,8 +22,11 @@ public class Pivot extends CommandBase {
     @Override
     public void execute() {
 
-        while(Robot.limelight.getXOffset()>margin ||Robot.limelight.getXOffset()<margin) {
-            drivetrain.getInstance().setspeed(speedconst*Robot.limelight.getXOffset(),-1*speedconst*Robot.limelight.getXOffset());
+        if(Robot.limelight.getXOffset()>margin ||Robot.limelight.getXOffset()<margin) {
+            drivetrain.getInstance().setspeed(kP*Robot.limelight.getXOffset(),-1*kP*Robot.limelight.getXOffset());
+        }else{
+            end(true);
+
         }
 
     }
