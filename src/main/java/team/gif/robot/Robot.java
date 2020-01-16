@@ -19,7 +19,7 @@ public class Robot extends TimedRobot {
 //  private final SendableChooser<String> m_chooser = new SendableChooser<>();
 //
 
-  //:public drivetrain drive;
+  //public drivetrain drive;
 
   public drivetrain driver;
 
