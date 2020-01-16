@@ -25,10 +25,10 @@ public class Pivot extends CommandBase {
         double xoffset = Robot.limelight.getXOffset();
         if(xoffset>-margin ||xoffset<margin) {
             drivetrain.getInstance().setspeed(kP*xoffset,-1*kP*xoffset);
-            SmartDashboard.putBoolean("Bridge Limit", false);
+            SmartDashboard.putBoolean("not there yet" , false);
         }else{
             end(true);
-            SmartDashboard.putBoolean("Bridge Limit", true);
+            SmartDashboard.putBoolean("we got there", true);
         }
         SmartDashboard.putNumber("robot x offset Angle", xoffset);
         SmartDashboard.putNumber("margin", margin);
