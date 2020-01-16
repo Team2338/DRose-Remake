@@ -11,10 +11,13 @@ public class Pivot extends CommandBase {
         addRequirements(drivetrain.getInstance());
         this.kP = Globals.kP;
         this.margin = Globals.margin;
+        this.kF = Globals.kF;
     }
 
     public static double margin ;
     public static double kP ;
+    public static double kF;
+    public static boolean endthing = false;
 
     @Override
     public void initialize() {
@@ -24,26 +27,34 @@ public class Pivot extends CommandBase {
     @Override
     public void execute() {
         double xoffset = Robot.limelight.getXOffset();
-        if(xoffset>-margin ||xoffset<margin) {
-            drivetrain.getInstance().setspeed(kP*xoffset,-1*kP*xoffset);
+        while(xoffset>margin ||xoffset<-margin) {
+            drivetrain.getInstance().setspeed(-1*kP*xoffset +kF ,1*kP*xoffset+kF);
             SmartDashboard.putBoolean("are we there yet" , false);
-        }else{
-            end(true);
-            SmartDashboard.putBoolean("are we there yet", true);
         }
+
+        drivetrain.getInstance().setspeed(0,0);
+        endthing = true;
+        SmartDashboard.putBoolean("are we there yet x", true);
+
         SmartDashboard.putNumber("robot x offset Angle", xoffset);
         SmartDashboard.putNumber("margin", margin);
         SmartDashboard.putNumber("kP", kP);
+        SmartDashboard.putNumber("kF", kF);
 
     }
 
     @Override
     public void end(boolean interrupted) {
-        drivetrain.getInstance().setspeed(0, 0);
+
+
+            drivetrain.getInstance().setspeed(0, 0);
+
+
+
     }
 
     @Override
     public boolean isFinished() {
-        return false;
+        return endthing;
     }
 }

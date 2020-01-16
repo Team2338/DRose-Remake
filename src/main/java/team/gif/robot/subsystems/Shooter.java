@@ -10,17 +10,20 @@ import team.gif.robot.RobotMap;
 public class Shooter extends SubsystemBase {
 
     private static Shooter instance = null;
+    public static PWMSparkMax flywheelMotor = new PWMSparkMax(RobotMap.flywheelMotor);
 
     public static Shooter getInstance() {
+
         if (instance == null) {
             instance = new Shooter();
         }
         return instance;
+
     }
 
 
     //Victor flywheelMotor = new Victor(RobotMap.flywheelMotor);
-    PWMSparkMax flywheelMotor = new PWMSparkMax(RobotMap.flywheelMotor);
+
 
     public void setSpeedFlywheel(double speedFlywheel) {
         flywheelMotor.set(speedFlywheel);
