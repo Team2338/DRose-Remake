@@ -12,6 +12,7 @@ import team.gif.robot.subsystems.*;
  * creating this project, you must also update the build.gradle file in the
  * project.
  */
+
 public class Robot extends TimedRobot {
 //  private static final String kDefaultAuto = "Default";
 //  private static final String kCustomAuto = "My Auto";
@@ -124,5 +125,6 @@ public class Robot extends TimedRobot {
     Globals.shooterSpeed = SmartDashboard.getNumber("Shooter Speed", Globals.shooterSpeed);
     //Globals.margin = SmartDashboard.getNumber("margin", Globals.margin);
     //Globals.kP = SmartDashboard.getNumber("kP", Globals.kP);
+    //I was here lol
   }
 }
