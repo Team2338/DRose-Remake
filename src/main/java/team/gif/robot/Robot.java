@@ -41,7 +41,7 @@ public class Robot extends TimedRobot {
     oi = new OI();
     driver = drivetrain.getInstance();
 
-    //SmartDashboard.putNumber("Shooter Speed", Globals.shooterSpeed);
+    SmartDashboard.putNumber("Shooter Speed", Globals.shooterSpeed);
     //SmartDashboard.putNumber("margin", Globals.margin);
     //SmartDashboard.putNumber("kP", Globals.kP);
     limelight = new Limelight();
@@ -122,7 +122,7 @@ public class Robot extends TimedRobot {
 
 
     Globals.shooterSpeed = SmartDashboard.getNumber("Shooter Speed", Globals.shooterSpeed);
-    Globals.margin = SmartDashboard.getNumber("margin", Globals.margin);
-    Globals.kP = SmartDashboard.getNumber("kP", Globals.kP);
+    //Globals.margin = SmartDashboard.getNumber("margin", Globals.margin);
+    //Globals.kP = SmartDashboard.getNumber("kP", Globals.kP);
   }
 }
