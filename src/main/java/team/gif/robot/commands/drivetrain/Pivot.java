@@ -9,14 +9,20 @@ import team.gif.robot.subsystems.drivetrain;
 public class Pivot extends CommandBase {
     public Pivot() {
         addRequirements(drivetrain.getInstance());
-        this.kP = Globals.kP;
-        this.margin = Globals.margin;
-        this.kF = Globals.kF;
+        this.marginx  = Globals.marginx;
+        this.marginy  = Globals.marginy;
+        this.kPx  = Globals.kPx;
+        this.kPy  = Globals.kPy;
+        this.kFx = Globals.kFx;
+        this.kFy = Globals.kFy;
     }
 
-    public static double margin ;
-    public static double kP ;
-    public static double kF;
+    public static double marginx ;
+    public static double marginy;
+    public static double kPx ;
+    public static double kPy;
+    public static double kFx;
+    public static double kFy;
     public static boolean endthing = false;
 
     @Override
@@ -27,20 +33,31 @@ public class Pivot extends CommandBase {
     @Override
     public void execute() {
         double xoffset = Robot.limelight.getXOffset();
-        while(xoffset>margin ||xoffset<-margin) {
-            drivetrain.getInstance().setspeed(-1*kP*xoffset +kF ,1*kP*xoffset+kF);
-            SmartDashboard.putBoolean("are we there yet" , false);
+        double yoffset = Robot.limelight.getYOffset();
+        double powerL;
+        double powerR;
+        while(xoffset>marginx ||xoffset<-marginx) {//aligning to x offset
+            powerL =-1*kPx*xoffset +kFx;
+            powerR = 1*kPx*xoffset+kFx;
+            drivetrain.getInstance().setspeed(powerL ,powerR);
+            SmartDashboard.putBoolean("are we there yet x" , false);
+            SmartDashboard.putNumber("PowerL",powerL);
+            SmartDashboard.putNumber("PowerR",powerR);
         }
-
         drivetrain.getInstance().setspeed(0,0);
-        endthing = true;
         SmartDashboard.putBoolean("are we there yet x", true);
+        while(yoffset>marginy ||yoffset<-marginy) {//aligning to y offset
+            powerL =-1*kPy*yoffset +kFy;
+            powerR =-1*kPy*yoffset+kFy;
+            drivetrain.getInstance().setspeed(powerL ,powerR);
+            SmartDashboard.putBoolean("are we there yet y" , false);
+            SmartDashboard.putNumber("PowerL",powerL);
+            SmartDashboard.putNumber("PowerR",powerR);
+        }
+        drivetrain.getInstance().setspeed(0,0);
+        SmartDashboard.putBoolean("are we there yet y", true);
 
-        SmartDashboard.putNumber("robot x offset Angle", xoffset);
-        SmartDashboard.putNumber("margin", margin);
-        SmartDashboard.putNumber("kP", kP);
-        SmartDashboard.putNumber("kF", kF);
-
+        endthing =true;//ends program
     }
 
     @Override
