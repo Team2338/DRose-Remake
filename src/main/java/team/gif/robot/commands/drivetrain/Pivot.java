@@ -33,36 +33,28 @@ public class Pivot extends CommandBase {
     @Override
     public void execute() {
         double xoffset = Robot.limelight.getXOffset();
-        double yoffset = Robot.limelight.getYOffset();
+        //double yoffset = Robot.limelight.getYOffset();
         double powerL;
         double powerR;
-        while(xoffset>marginx ||xoffset<-marginx) {//aligning to x offset
+        SmartDashboard.putBoolean("see target",Robot.limelight.hasTarget());
+        if((xoffset>marginx ||xoffset<-marginx) ) {//aligning to x offset
+            //SmartDashboard.putBoolean("see target1",Robot.limelight.hasTarget());
             powerL =-1*kPx*xoffset +kFx;
             powerR = 1*kPx*xoffset+kFx;
             drivetrain.getInstance().setspeed(powerL ,powerR);
             SmartDashboard.putBoolean("are we there yet x" , false);
             SmartDashboard.putNumber("PowerL",powerL);
             SmartDashboard.putNumber("PowerR",powerR);
+        }else{
+            endthing = true;
+            drivetrain.getInstance().setspeed(0,0);
+            SmartDashboard.putBoolean("are we there yet x", true);
         }
-        drivetrain.getInstance().setspeed(0,0);
-        SmartDashboard.putBoolean("are we there yet x", true);
-        while(yoffset>marginy ||yoffset<-marginy) {//aligning to y offset
-            powerL =-1*kPy*yoffset +kFy;
-            powerR =-1*kPy*yoffset+kFy;
-            drivetrain.getInstance().setspeed(powerL ,powerR);
-            SmartDashboard.putBoolean("are we there yet y" , false);
-            SmartDashboard.putNumber("PowerL",powerL);
-            SmartDashboard.putNumber("PowerR",powerR);
-        }
-        drivetrain.getInstance().setspeed(0,0);
-        SmartDashboard.putBoolean("are we there yet y", true);
-
-        endthing =true;//ends program
     }
 
     @Override
     public void end(boolean interrupted) {
-
+        System.out.println("end");
 
             drivetrain.getInstance().setspeed(0, 0);
 

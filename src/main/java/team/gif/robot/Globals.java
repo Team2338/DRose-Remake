@@ -12,7 +12,7 @@ public class Globals {
     public static double shooterSpeed = 0.7;
     public static double kPx = .02;
     public static double marginx = 5;
-    public static double kFx = .1;
+    public static double kFx = .15;
 
     public static double kPy = .02;
     public static double marginy = 5;
