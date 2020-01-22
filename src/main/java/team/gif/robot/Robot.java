@@ -12,6 +12,7 @@ import team.gif.robot.subsystems.*;
  * creating this project, you must also update the build.gradle file in the
  * project.
  */
+
 public class Robot extends TimedRobot {
 //  private static final String kDefaultAuto = "Default";
 //  private static final String kCustomAuto = "My Auto";
@@ -42,8 +43,13 @@ public class Robot extends TimedRobot {
     driver = drivetrain.getInstance();
 
     SmartDashboard.putNumber("Shooter Speed", Globals.shooterSpeed);
+<<<<<<< HEAD
     SmartDashboard.putNumber("marginx", Globals.marginx);
     SmartDashboard.putNumber("kPx", Globals.kPx);
+=======
+    //SmartDashboard.putNumber("margin", Globals.margin);
+    //SmartDashboard.putNumber("kP", Globals.kP);
+>>>>>>> master
     limelight = new Limelight();
   }
 
@@ -124,5 +130,13 @@ public class Robot extends TimedRobot {
     //System.out.println("teleop init");
     //drive = new drivetrain();
 
+<<<<<<< HEAD
+=======
+
+    Globals.shooterSpeed = SmartDashboard.getNumber("Shooter Speed", Globals.shooterSpeed);
+    //Globals.margin = SmartDashboard.getNumber("margin", Globals.margin);
+    //Globals.kP = SmartDashboard.getNumber("kP", Globals.kP);
+    //I was here lol
+>>>>>>> master
   }
 }
