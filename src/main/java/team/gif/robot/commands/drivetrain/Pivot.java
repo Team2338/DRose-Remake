@@ -34,11 +34,11 @@ public class Pivot extends CommandBase {
     public void execute() {
 
         double xoffset = Robot.limelight.getXOffset();
-        //double yoffset = Robot.limelight.getYOffset();
+        double yoffset = Robot.limelight.getYOffset();
         double powerL;
         double powerR;
         SmartDashboard.putBoolean("see target",Robot.limelight.hasTarget());
-        if(xoffset>marginx ||xoffset<-marginx ) {//aligning to x offset
+        if((xoffset>marginx ||xoffset<-marginx)||(xoffset==0 &&yoffset ==0) ) {//aligning to x offset
             //SmartDashboard.putBoolean("see target1",Robot.limelight.hasTarget());
             powerL =-1*kPx*xoffset +kFx;
             powerR = 1*kPx*xoffset+kFx;
