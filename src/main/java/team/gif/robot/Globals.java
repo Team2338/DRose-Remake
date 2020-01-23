@@ -18,4 +18,7 @@ public class Globals {
     public static double marginy = 5;
     public static double kFy = .1;
 
+    public static double m = -0.0107;
+    public static double k = .5107;
+
 }

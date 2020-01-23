@@ -1,5 +1,4 @@
 package team.gif.robot;
-import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import team.gif.robot.commands.*;
@@ -23,10 +22,11 @@ public class OI {
         // a.whileHeld(new CollectorBottom());
         // b.whileHeld(new CollectorMiddle());
         // x.whileHeld(new CollectorTop());
+
         y.whenPressed(new Stop());
         LB.whileHeld(new Flywheel());
 
-        x.whenPressed(new IntakeGroup());
+        x.whenPressed(new IntakeGroup());0
         a.whileHeld(new ShooterGroup());
 
         b.whenPressed(new LimelightShooterGroup());

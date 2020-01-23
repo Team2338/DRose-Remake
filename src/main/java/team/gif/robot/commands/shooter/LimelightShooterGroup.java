@@ -10,6 +10,7 @@ public class LimelightShooterGroup extends SequentialCommandGroup {
     public LimelightShooterGroup() {
         addCommands(
                 new Pivot(),
+                new calculations(),
                 new RevFlywheel().withTimeout(2),
                 new ShootTrigger().withTimeout(1),
                 new CollectorStageThree(),

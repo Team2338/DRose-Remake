@@ -39,17 +39,16 @@ public class Robot extends TimedRobot {
 
 //    drivetrain = new drivetrain();
 
+
     oi = new OI();
     driver = drivetrain.getInstance();
-
     SmartDashboard.putNumber("Shooter Speed", Globals.shooterSpeed);
-<<<<<<< HEAD
     SmartDashboard.putNumber("marginx", Globals.marginx);
     SmartDashboard.putNumber("kPx", Globals.kPx);
-=======
+
     //SmartDashboard.putNumber("margin", Globals.margin);
     //SmartDashboard.putNumber("kP", Globals.kP);
->>>>>>> master
+
     limelight = new Limelight();
   }
 
@@ -63,6 +62,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotPeriodic() {
+
     SmartDashboard.putNumber("target x",Robot.limelight.getXOffset());
     SmartDashboard.putBoolean("see target",Robot.limelight.hasTarget());
     CommandScheduler.getInstance().run();
@@ -130,13 +130,12 @@ public class Robot extends TimedRobot {
     //System.out.println("teleop init");
     //drive = new drivetrain();
 
-<<<<<<< HEAD
-=======
+
 
     Globals.shooterSpeed = SmartDashboard.getNumber("Shooter Speed", Globals.shooterSpeed);
     //Globals.margin = SmartDashboard.getNumber("margin", Globals.margin);
     //Globals.kP = SmartDashboard.getNumber("kP", Globals.kP);
     //I was here lol
->>>>>>> master
+
   }
 }
