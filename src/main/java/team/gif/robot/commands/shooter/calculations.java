@@ -15,6 +15,7 @@ public class calculations extends CommandBase {
         double yoffset = Robot.limelight.getYOffset();
         Globals.shooterSpeed = yoffset*Globals.m +Globals.k;
         SmartDashboard.putNumber("shooterspeed",Globals.shooterSpeed);
+        System.out.println(Globals.shooterSpeed);
     }
     @Override
     public void execute(){

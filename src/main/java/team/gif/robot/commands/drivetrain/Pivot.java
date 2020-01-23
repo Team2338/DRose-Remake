@@ -27,17 +27,18 @@ public class Pivot extends CommandBase {
 
     @Override
     public void initialize() {
-
+        System.out.println("pivot");
     }
 
     @Override
     public void execute() {
+
         double xoffset = Robot.limelight.getXOffset();
         //double yoffset = Robot.limelight.getYOffset();
         double powerL;
         double powerR;
         SmartDashboard.putBoolean("see target",Robot.limelight.hasTarget());
-        if((xoffset>marginx ||xoffset<-marginx) ) {//aligning to x offset
+        if(xoffset>marginx ||xoffset<-marginx ) {//aligning to x offset
             //SmartDashboard.putBoolean("see target1",Robot.limelight.hasTarget());
             powerL =-1*kPx*xoffset +kFx;
             powerR = 1*kPx*xoffset+kFx;
@@ -46,6 +47,7 @@ public class Pivot extends CommandBase {
             SmartDashboard.putNumber("PowerL",powerL);
             SmartDashboard.putNumber("PowerR",powerR);
         }else{
+            System.out.println("wegot there");
             endthing = true;
             drivetrain.getInstance().setspeed(0,0);
             SmartDashboard.putBoolean("are we there yet x", true);

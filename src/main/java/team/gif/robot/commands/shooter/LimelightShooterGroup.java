@@ -13,8 +13,8 @@ public class LimelightShooterGroup extends SequentialCommandGroup {
                 new calculations(),
                 new RevFlywheel().withTimeout(2),
                 new ShootTrigger().withTimeout(1),
-                new CollectorStageThree(),
-                new CollectorStageTwo()
+                new CollectorStageThree().withTimeout(2),
+                new CollectorStageTwo().withTimeout(2)
         );
     }
 }

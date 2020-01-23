@@ -26,7 +26,7 @@ public class OI {
         y.whenPressed(new Stop());
         LB.whileHeld(new Flywheel());
 
-        x.whenPressed(new IntakeGroup());0
+        x.whileHeld(new IntakeGroup());
         a.whileHeld(new ShooterGroup());
 
         b.whenPressed(new LimelightShooterGroup());
