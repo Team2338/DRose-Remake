@@ -1,5 +1,6 @@
 package team.gif.robot;
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import team.gif.robot.commands.*;
 import team.gif.robot.commands.collector.IntakeGroup;
@@ -23,7 +24,7 @@ public class OI {
         // b.whileHeld(new CollectorMiddle());
         // x.whileHeld(new CollectorTop());
 
-        y.whenPressed(new Stop());
+        y.whenPressed(new Stop().withTimeout(20));//thats nyoo
         LB.whileHeld(new Flywheel());
 
         x.whileHeld(new IntakeGroup());

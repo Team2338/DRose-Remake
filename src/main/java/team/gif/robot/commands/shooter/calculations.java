@@ -12,14 +12,20 @@ public class calculations extends CommandBase {
     @Override
     public void initialize() {
         System.out.println("calculations init");
+        // calculating the speed of the flywheel
+
+        //FOR down towards target
+
         double yoffset = Robot.limelight.getYOffset();
+        if(yoffset>1.8){
+            yoffset = yoffset*-1;
+        }
         Globals.shooterSpeed = yoffset*Globals.m +Globals.k;
         SmartDashboard.putNumber("shooterspeed",Globals.shooterSpeed);
         System.out.println(Globals.shooterSpeed);
     }
     @Override
     public void execute(){
-
 
     }
 

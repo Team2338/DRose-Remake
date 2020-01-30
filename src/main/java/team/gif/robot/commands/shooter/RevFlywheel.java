@@ -6,6 +6,7 @@ import team.gif.robot.subsystems.Shooter;
 
 public class RevFlywheel extends CommandBase {
     public RevFlywheel() {
+        System.out.println("revving flywheel");
         addRequirements(Shooter.getInstance());
     }
 

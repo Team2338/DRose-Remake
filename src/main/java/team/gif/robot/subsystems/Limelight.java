@@ -120,6 +120,7 @@ public class Limelight {
      *
      * @return offset in degrees (-24.85 to +24.85)
      */
+
     public double getYOffset() {
         return table.getEntry("ty").getDouble(0.0);
     }

@@ -1,5 +1,6 @@
 package team.gif.robot.commands;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import team.gif.robot.subsystems.Collector;
 import team.gif.robot.subsystems.Shooter;
@@ -13,6 +14,7 @@ public class Stop extends CommandBase {
 
     @Override
     public void initialize() {
+        SmartDashboard.putBoolean("Stoped",true);//thats nyoo
     }
 
     @Override
@@ -25,7 +27,7 @@ public class Stop extends CommandBase {
 
     @Override
     public void end(boolean interrupted) {
-
+        SmartDashboard.putBoolean("Stoped",false);//thats nyoo
     }
 
     @Override
