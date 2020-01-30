@@ -15,6 +15,7 @@ public class Pivot extends CommandBase {
         this.kPy  = Globals.kPy;
         this.kFx = Globals.kFx;
         this.kFy = Globals.kFy;
+        this.Iend = Globals.Iend;
     }
 
     public static double marginx ;
@@ -24,6 +25,8 @@ public class Pivot extends CommandBase {
     public static double kFx;
     public static double kFy;
     public static boolean endthing = false;
+    public int Iend = 0;
+    public int Ilooped;
 
     @Override
     public void initialize() {

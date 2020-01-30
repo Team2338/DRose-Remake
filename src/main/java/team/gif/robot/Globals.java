@@ -21,4 +21,7 @@ public class Globals {
     public static double m = -.015;//-0.0150 before
     public static double k = .5;//.5 before
 
+    public static int Iend= 25;// every one corresponds to about 20ms scince it has been in the margin
+    //currently about .5 seconds
+
 }
