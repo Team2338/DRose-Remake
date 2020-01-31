@@ -16,6 +16,7 @@ public class Pivot extends CommandBase {
         this.kFx = Globals.kFx;
         this.kFy = Globals.kFy;
         this.Iend = Globals.Iend;
+        this.PivotI = Globals.pivotI;
     }
 
     public static double marginx ;
@@ -25,12 +26,17 @@ public class Pivot extends CommandBase {
     public static double kFx;
     public static double kFy;
     public static boolean endthing = false;
+    public static double PivotI;
     public int Iend = 0;
-    public int Ilooped;
+    public int Ilooped = 0;
+    double IpowerL;
+    double IpowerR;
 
     @Override
     public void initialize() {
         System.out.println("pivot");
+        IpowerL = 0;
+        IpowerR =0 ;
     }
 
     @Override
@@ -38,6 +44,8 @@ public class Pivot extends CommandBase {
 
         double xoffset = Robot.limelight.getXOffset();
         double yoffset = Robot.limelight.getYOffset();
+        IpowerL = IpowerL +Robot.limelight.getXOffset();
+        IpowerR = IpowerR +Robot.limelight.getXOffset();
         double powerL;
         double powerR;
         int f = 1;
@@ -48,16 +56,21 @@ public class Pivot extends CommandBase {
         if(xoffset>marginx ||xoffset<-marginx) {//aligning to x offset
             //SmartDashboard.putBoolean("see target1",Robot.limelight.hasTarget());
             powerL =-1*(kPx*xoffset +f*kFx);
-            powerR = 1*(kPx*xoffset+ f*kFx);
+            powerR =1*(kPx*xoffset+ f*kFx);
             drivetrain.getInstance().setspeed(powerL ,powerR);
             SmartDashboard.putBoolean("are we there yet x" , false);
             SmartDashboard.putNumber("PowerL",powerL);
             SmartDashboard.putNumber("PowerR",powerR);
         }else{
-            System.out.println("wegot there");
-            endthing = true;
-            drivetrain.getInstance().setspeed(0,0);
-            SmartDashboard.putBoolean("are we there yet x", true);
+            Ilooped++;
+
+            if(Ilooped>Iend){
+                System.out.println("wegot there");
+                SmartDashboard.putBoolean("are we there yet x", true);
+                drivetrain.getInstance().setspeed(0,0);
+                endthing = true;
+            }
+
         }
     }
 
