@@ -24,6 +24,6 @@ public class Globals {
     public static int Iend= 25;// every one corresponds to about 20ms scince it has been in the margin
     //currently about .5 seconds
 
-    public static double pivotI = .02;
+    public static double pivotI = .005;
 
 }

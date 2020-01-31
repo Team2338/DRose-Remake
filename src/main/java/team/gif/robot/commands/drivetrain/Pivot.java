@@ -44,8 +44,8 @@ public class Pivot extends CommandBase {
 
         double xoffset = Robot.limelight.getXOffset();
         double yoffset = Robot.limelight.getYOffset();
-        IpowerL = IpowerL +Robot.limelight.getXOffset();
-        IpowerR = IpowerR +Robot.limelight.getXOffset();
+        IpowerL = IpowerL +PivotI*xoffset;
+        IpowerR = IpowerR +PivotI*xoffset;
         double powerL;
         double powerR;
         int f = 1;
@@ -53,10 +53,24 @@ public class Pivot extends CommandBase {
         if(xoffset<0){
             f = -1;
         }
+        powerL =-1*(kPx*xoffset + f*kFx + f*IpowerL);
+        powerR = 1*(kPx*xoffset + f*kFx + f*IpowerR);
+        if(powerL > 1){
+            powerL = 1;
+        }
+        if(powerL < -1){
+            powerL = -1;
+        }
+        if(powerR > 1){
+            powerR = 1;
+        }
+        if(powerR < -1){
+            powerR = -1;
+        }
+
         if(xoffset>marginx ||xoffset<-marginx) {//aligning to x offset
             //SmartDashboard.putBoolean("see target1",Robot.limelight.hasTarget());
-            powerL =-1*(kPx*xoffset +f*kFx);
-            powerR =1*(kPx*xoffset+ f*kFx);
+
             drivetrain.getInstance().setspeed(powerL ,powerR);
             SmartDashboard.putBoolean("are we there yet x" , false);
             SmartDashboard.putNumber("PowerL",powerL);
