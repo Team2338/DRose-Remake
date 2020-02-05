@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj2.command.WaitUntilCommand;
 import team.gif.robot.Globals;
 import team.gif.robot.OI;
 import team.gif.robot.Robot;
+import team.gif.robot.commands.VibeRate;
 import team.gif.robot.subsystems.drivetrain;
 
 public class Pivot extends CommandBase {
@@ -43,8 +44,7 @@ public class Pivot extends CommandBase {
         IpowerL = 0;
         IpowerR =0 ;
         if (Robot.limelight.hasTarget()){
-            Robot.oi.setRumble(true);
-            withTimeout(1);
+            new VibeRate().withTimeout(1);
         }
     }
 
