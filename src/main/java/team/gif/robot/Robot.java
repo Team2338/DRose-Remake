@@ -25,7 +25,7 @@ public class Robot extends TimedRobot {
   public drivetrain driver;
 
   public static Limelight limelight;
-  private OI oi;
+  public static OI oi;
 
   /**
    * This function is run when the robot is first started up and should be

@@ -1,8 +1,12 @@
 package team.gif.robot.commands.drivetrain;
 
+import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.WaitCommand;
+import edu.wpi.first.wpilibj2.command.WaitUntilCommand;
 import team.gif.robot.Globals;
+import team.gif.robot.OI;
 import team.gif.robot.Robot;
 import team.gif.robot.subsystems.drivetrain;
 
@@ -31,12 +35,17 @@ public class Pivot extends CommandBase {
     public int Ilooped = 0;
     double IpowerL;
     double IpowerR;
+    double time;
 
     @Override
     public void initialize() {
         System.out.println("pivot");
         IpowerL = 0;
         IpowerR =0 ;
+        if (Robot.limelight.hasTarget()){
+            Robot.oi.setRumble(true);
+            withTimeout(1);
+        }
     }
 
     @Override
@@ -77,11 +86,10 @@ public class Pivot extends CommandBase {
             SmartDashboard.putNumber("PowerR",powerR);
         }else{
             Ilooped++;
+            drivetrain.getInstance().setspeed(0,0);
 
             if(Ilooped>Iend){
-                System.out.println("wegot there");
-                SmartDashboard.putBoolean("are we there yet x", true);
-                drivetrain.getInstance().setspeed(0,0);
+                Robot.oi.setRumble(true);
                 endthing = true;
             }
 
@@ -90,11 +98,9 @@ public class Pivot extends CommandBase {
 
     @Override
     public void end(boolean interrupted) {
-
-
-            drivetrain.getInstance().setspeed(0, 0);
-
-
+        System.out.println("we got there");
+        Robot.oi.setRumble(true);
+        SmartDashboard.putBoolean("are we there yet x", true);
 
     }
 

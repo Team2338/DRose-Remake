@@ -9,6 +9,7 @@ public class Globals {
     //public static FileWriter writer;
     //public static File file;
 
+    public static boolean target = false;
     public static double shooterSpeed = 1;
     public static double kPx = .06;
     public static double marginx = 2;
