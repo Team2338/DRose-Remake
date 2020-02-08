@@ -5,8 +5,8 @@ plugins {
 
 def ROBOT_MAIN_CLASS = "team.gif.robot.Main"
 def TEAM_NUMBER = 2338
-sourceCompatibility = 1.11
-targetCompatibility = 1.11
+sourceCompatibility = 1.13
+targetCompatibility = 1.13
 
 
 // Define my targets (RoboRIO) and artifacts (deployable files)
