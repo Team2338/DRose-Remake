@@ -14,6 +14,9 @@ public class calculations extends CommandBase {
     @Override
     public void initialize() {
         endthing = false;
+
+        t = Globals.avgiterations;
+
         /*
         System.out.println("calculations init");
         // calculating the speed of the flywheel

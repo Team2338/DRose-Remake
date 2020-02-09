@@ -70,9 +70,6 @@ public class Robot extends TimedRobot {
     calculations c = new calculations();
     CommandScheduler.getInstance().schedule(c);
 
-    //System.out.println(Robot.limelight.getCamTran());
-    //System.out.println("target y "+Robot.limelight.getYOffset());
-    //SmartDashboard.putNumber("target x",Robot.limelight.getXOffset());
     SmartDashboard.putBoolean("see target",Robot.limelight.hasTarget());
     CommandScheduler.getInstance().run();
 

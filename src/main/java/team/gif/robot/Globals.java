@@ -26,4 +26,6 @@ public class Globals {
 
     public static double pivotI = .005;
 
+    public static int avgiterations =5;
+
 }
