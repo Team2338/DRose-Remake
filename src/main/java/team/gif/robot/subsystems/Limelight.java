@@ -3,6 +3,8 @@ package team.gif.robot.subsystems;
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.networktables.NetworkTableEntry;
+import org.ejml.data.DMatrix2;
+import org.ejml.data.DMatrix2x2;
 
 public class Limelight {
 
@@ -215,6 +217,49 @@ public class Limelight {
     public double getCustomValue(String key) {
         return table.getEntry(key).getDouble(0.0);
     }
-    //wel fuk
-    //we know what to do tho
+
+//<<<<<<<<--------------------------------------SOLVE PNP------------------------------------->>>>>>>>>>>>>>>>>>>>>>>>>
+
+    public static double theta = 9;//in degrees
+
+    public static double limelightheight = 5;//in inches from ground
+
+    public static double tr =97.5;// in inches
+
+    public void setheight(double thing){
+        theta =thing;
+    }
+
+    public void setelevation(double elevation){
+        limelightheight=elevation;
+    }
+
+    public double x(){
+        return 0;
+    }
+
+    public double y(){
+        return 0;
+    }
+    public double z(){
+        return tr-limelightheight;
+    }
+    public double pitch(){
+        return 0;
+    }
+    public double yaw(){
+        return 0;
+    }
+    public double roll(){
+        return theta;
+    }
+
+
+
+
+
+
+
+
+
 }
