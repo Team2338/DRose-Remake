@@ -3,6 +3,7 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import team.gif.robot.commands.drivetrain.drive;
+import team.gif.robot.commands.shooter.calculations;
 import team.gif.robot.subsystems.*;
 
 /**
@@ -66,13 +67,15 @@ public class Robot extends TimedRobot {
     SmartDashboard.putNumber("target y",Robot.limelight.getYOffset());
     SmartDashboard.putNumber("target x",Robot.limelight.getXOffset());
 
-
+    calculations c = new calculations();
+    CommandScheduler.getInstance().schedule(c);
 
     //System.out.println(Robot.limelight.getCamTran());
     //System.out.println("target y "+Robot.limelight.getYOffset());
     //SmartDashboard.putNumber("target x",Robot.limelight.getXOffset());
     SmartDashboard.putBoolean("see target",Robot.limelight.hasTarget());
     CommandScheduler.getInstance().run();
+
   }
 
   /**
