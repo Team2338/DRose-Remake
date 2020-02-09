@@ -2,9 +2,6 @@ package team.gif.robot.subsystems;
 
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableInstance;
-import edu.wpi.first.networktables.NetworkTableEntry;
-import org.ejml.data.DMatrix2;
-import org.ejml.data.DMatrix2x2;
 
 public class Limelight {
 
@@ -220,6 +217,7 @@ public class Limelight {
 
 //<<<<<<<<--------------------------------------SOLVE PNP------------------------------------->>>>>>>>>>>>>>>>>>>>>>>>>
 
+    /*
     public static double theta = 9;//in degrees
 
     public static double limelightheight = 5;//in inches from ground
@@ -241,25 +239,21 @@ public class Limelight {
     public double y(){
         return 0;
     }
+
     public double z(){
         return tr-limelightheight;
     }
+
     public double pitch(){
         return 0;
     }
+
     public double yaw(){
         return 0;
     }
+
     public double roll(){
         return theta;
     }
-
-
-
-
-
-
-
-
-
+    */
 }

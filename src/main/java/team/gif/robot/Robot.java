@@ -64,15 +64,8 @@ public class Robot extends TimedRobot {
   public void robotPeriodic() {
 
     SmartDashboard.putNumber("target y",Robot.limelight.getYOffset());
-
-    double[] camtran = Robot.limelight.getCamTran();
     SmartDashboard.putNumber("target x",Robot.limelight.getXOffset());
-    SmartDashboard.putNumber("camtran 0",camtran[0]);
-    SmartDashboard.putNumber("camtran 1",camtran[1]);
-    SmartDashboard.putNumber("camtran 2",camtran[2]);
-    SmartDashboard.putNumber("camtran 3",camtran[3]);
-    SmartDashboard.putNumber("camtran 4",camtran[4]);
-    SmartDashboard.putNumber("camtran 5",camtran[5]);
+
 
 
     //System.out.println(Robot.limelight.getCamTran());
