@@ -53,13 +53,16 @@ public class calculations extends CommandBase {
         return endthing;
     }
 
-
     @Override
     public void end(boolean interrupted) {
+        double avgerror = 0;
         for (int j= 0;j<c.length;j++){
             c[j]= c[j]/t;
             SmartDashboard.putNumber("c "+j,c[j]);
-            SmartDashboard.putNumber("c error "+j,c[j]-Robot.limelight.getCamTran()[j]/c[j]);
+            double error =c[j]-Robot.limelight.getCamTran()[j]/c[j];
+            SmartDashboard.putNumber("c error "+j,error);
+            avgerror = avgerror +error;
         }
+        SmartDashboard.putNumber("camtran avg error",avgerror/c.length);
     }
 }
