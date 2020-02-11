@@ -2,6 +2,7 @@ package team.gif.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import team.gif.robot.commands.Mwath.calculations;
 import team.gif.robot.commands.drivetrain.drive;
 import team.gif.robot.subsystems.*;
 
@@ -41,6 +42,7 @@ public class Robot extends TimedRobot {
 
     oi = new OI();
     driver = drivetrain.getInstance();
+    calculations x = new calculations();
 
     SmartDashboard.putNumber("Shooter Speed", Globals.shooterSpeed);
     //SmartDashboard.putNumber("margin", Globals.margin);
