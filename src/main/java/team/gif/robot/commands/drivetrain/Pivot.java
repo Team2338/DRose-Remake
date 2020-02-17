@@ -11,97 +11,83 @@ import team.gif.robot.Robot;
 import team.gif.robot.commands.VibeRate;
 import team.gif.robot.subsystems.drivetrain;
 
+
 public class Pivot extends CommandBase {
     public Pivot() {
-        addRequirements(drivetrain.getInstance());
-        this.marginx  = Globals.marginx;
-        this.marginy  = Globals.marginy;
-        this.kPx  = Globals.kPx;
-        this.kPy  = Globals.kPy;
-        this.kFx = Globals.kFx;
-        this.kFy = Globals.kFy;
-        this.Iend = Globals.Iend;
-        this.PivotI = Globals.pivotI;
+        SmartDashboard.putBoolean("trying to get there",false);
+        SmartDashboard.putBoolean("are we there yet x" , false);
+        //addRequirements(Drivetrain.getInstance());
+
     }
 
     public static double marginx ;
-    public static double marginy;
     public static double kPx ;
     public static double kPy;
     public static double kFx;
     public static double kFy;
     public static boolean endthing = false;
-    public static double PivotI;
-    public int Iend = 0;
-    public int Ilooped = 0;
-    double IpowerL;
-    double IpowerR;
-    double time;
+
+    public double looptime = 0;
+    public double kI =.00;
+    public double Ilooper =0;
+    public double looped =0;
 
     @Override
     public void initialize() {
+        Robot.oi.setRumble(false);
+        //looptime = 0;
+        looped =0;
+        Ilooper = 5;
+        SmartDashboard.putBoolean("trying to get there",true);
         System.out.println("pivot");
-        IpowerL = 0;
-        IpowerR =0 ;
-        if (Robot.limelight.hasTarget()){
-            new VibeRate().withTimeout(1);
-        }
+
+        marginx  = Globals.marginx;
+        kPx  = Globals.kPx;
+        //kFx = Globals.kFx;
     }
 
     @Override
     public void execute() {
+        System.out.println("pivoting");
 
         double xoffset = Robot.limelight.getXOffset();
-        double yoffset = Robot.limelight.getYOffset();
-        IpowerL = IpowerL +PivotI*xoffset;
-        IpowerR = IpowerR +PivotI*xoffset;
+        //double yoffset = Robot.limelight.getYOffset();
         double powerL;
         double powerR;
-        int f = 1;
+
         SmartDashboard.putBoolean("see target",Robot.limelight.hasTarget());
-        if(xoffset<0){
-            f = -1;
+        /*
+        if(xoffset>marginx ||xoffset<-marginx ) {//aligning to x offset
+            SmartDashboard.putBoolean("see target1", Robot.limelight.hasTarget());
         }
-        powerL =-1*(kPx*xoffset + f*kFx + f*IpowerL);
-        powerR = 1*(kPx*xoffset + f*kFx + f*IpowerR);
-        if(powerL > 1){
-            powerL = 1;
-        }
-        if(powerL < -1){
-            powerL = -1;
-        }
-        if(powerR > 1){
-            powerR = 1;
-        }
-        if(powerR < -1){
-            powerR = -1;
-        }
-
-        if(xoffset>marginx ||xoffset<-marginx) {//aligning to x offset
-            //SmartDashboard.putBoolean("see target1",Robot.limelight.hasTarget());
-
-            drivetrain.getInstance().setspeed(powerL ,powerR);
-            SmartDashboard.putBoolean("are we there yet x" , false);
-            SmartDashboard.putNumber("PowerL",powerL);
-            SmartDashboard.putNumber("PowerR",powerR);
+        */
+        if(Math.abs(xoffset)<marginx){
+            Ilooper += xoffset;
+            powerL = 0.5*kPx*xoffset+ Ilooper*kI;
+            powerR = -0.5*kPx*xoffset+ Ilooper*kI;
+            Robot.oi.setRumble(true);
         }else{
-            Ilooped++;
-            drivetrain.getInstance().setspeed(0,0);
-
-            if(Ilooped>Iend){
-                Robot.oi.setRumble(true);
-                endthing = true;
-            }
-
+            Ilooper = 0;
+            powerL = 0.5*kPx*xoffset;
+            powerR = -0.5*kPx*xoffset;
+            Robot.oi.setRumble(false);
         }
+
+        drivetrain.getInstance().setspeed(powerR ,powerL);
+        SmartDashboard.putNumber("PowerL",powerL);
+        SmartDashboard.putNumber("PowerR",powerR);
+        //looped =0;
+
+
+
+
     }
 
     @Override
     public void end(boolean interrupted) {
-        System.out.println("we got there");
         Robot.oi.setRumble(true);
-        SmartDashboard.putBoolean("are we there yet x", true);
-
+        SmartDashboard.putBoolean("trying to get there",false);
+        //Drivetrain.getInstance().setSpeed(0, 0);
     }
 
     @Override

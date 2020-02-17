@@ -19,8 +19,8 @@ public class OI {
     JoystickButton b = new JoystickButton(controller, 2);
     JoystickButton x = new JoystickButton(controller, 3);
     JoystickButton y = new JoystickButton(controller, 4);
-    JoystickButton RB = new JoystickButton(controller, 5);
-    JoystickButton LB = new JoystickButton(controller, 6);
+    JoystickButton LB = new JoystickButton(controller, 5);
+    JoystickButton RB = new JoystickButton(controller, 6);
     JoystickButton LT = new JoystickButton(controller, 7);
     JoystickButton menu = new JoystickButton(controller, 8);
     public OI(){
@@ -29,11 +29,16 @@ public class OI {
             // x.whileHeld(new CollectorTop());
 
             y.whenPressed(new Stop().withTimeout(20));//thats nyoo
-            LB.whileHeld(new Flywheel());
+            LB.whenPressed(new Flywheel());
+            LB.whenReleased(new Stop());
 
-            x.whileHeld(new IntakeGroup());
-            a.whileHeld(new ShooterGroup());
-            b.whenPressed(new Pivot());
+            x.whenPressed(new IntakeGroup());
+            x.whenReleased(new Stop());
+            a.whenPressed(new ShooterGroup());
+            a.whenReleased(new Stop());
+            RB.whenPressed(new Pivot());
+            RB.whenReleased(new Stop());
+
 
             menu.whenPressed(new LimelightShooterGroup());
 
@@ -43,4 +48,5 @@ public class OI {
         controller.setRumble(GenericHID.RumbleType.kLeftRumble, rumble ? 1.0 : 0.0);
         controller.setRumble(GenericHID.RumbleType.kRightRumble, rumble ? 1.0 : 0.0);
     }
+
 }
